@@ -1,27 +1,27 @@
-import { StyleSheet } from 'react-native';
+import styled from 'styled-components/native';
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-  title: {
-    fontSize: 27,
-    marginTop: 100,
-    textAlign: 'center',
-  },
-  messaging: {
-    fontSize: 22,
-    marginTop: 25,
-    marginLeft: 10,
-  },
-  btn: {
-    left: 0,
-    right: 0,
-    bottom: 5,
-    height: 150,
-    position: 'absolute',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
-export default styles;
+export const Container = styled.View`
+  flex: 1;
+`;
+
+export const Title = styled.Text`
+  font-size: 27px;
+  margin-top: 100px;
+  text-align: center;
+`;
+
+export const SubTitle = styled.Text`
+  font-size: 22px;
+  margin-top: 25px;
+  margin-left: 10px;
+`;
+
+export const Btn = styled.View`
+  left: 0px;
+  right: 0px;
+  bottom: 5px;
+  height: 150px;
+  position: absolute;
+  align-items: center;
+  justify-content: center;
+`;

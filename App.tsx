@@ -3,11 +3,12 @@ import React from 'react';
 import { StyleSheet, View } from 'react-native';
 
 import Home from './src/screens/Home';
+import Search from './src/screens/Search';
 
 export default function App(): JSX.Element {
   return (
     <View style={styles.container}>
-      <Home />
+      <Search />
       <StatusBar style="auto" />
     </View>
   );

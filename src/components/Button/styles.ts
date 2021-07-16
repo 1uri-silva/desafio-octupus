@@ -1,18 +1,17 @@
-import { StyleSheet } from 'react-native';
+import { TouchableOpacity } from 'react-native';
+import styled from 'styled-components/native';
 
-const styles = StyleSheet.create({
-  container: {
-    height: 50,
-    width: '80%',
-    marginTop: 100,
-    alignItems: 'center',
-    backgroundColor: 'blue',
-    justifyContent: 'center',
-  },
-  text: {
-    fontSize: 20,
-    color: '#fff',
-    textAlign: 'center',
-  },
-});
-export default styles;
+export const Container = styled(TouchableOpacity)`
+  height: 50px;
+  width: 80%;
+  margin-top: 100px;
+  align-items: center;
+  background-color: blue;
+  justify-content: center;
+`;
+
+export const Text = styled.Text`
+  font-size: 20px;
+  color: #fff;
+  text-align: center;
+`;

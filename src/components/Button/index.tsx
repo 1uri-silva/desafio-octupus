@@ -1,15 +1,15 @@
 import React from 'react';
-import { Text, TouchableOpacity, TouchableOpacityProps } from 'react-native';
+import { TouchableOpacityProps } from 'react-native';
 
-import styles from './styles';
+import { Container, Text } from './styles';
 
 type Props = TouchableOpacityProps & {
   title: string;
 };
 export default function Button({ title, ...rest }: Props): JSX.Element {
   return (
-    <TouchableOpacity style={styles.container} {...rest}>
-      <Text style={styles.text}>{title}</Text>
-    </TouchableOpacity>
+    <Container {...rest}>
+      <Text>{title}</Text>
+    </Container>
   );
 }

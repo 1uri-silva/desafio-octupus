@@ -1,23 +1,22 @@
 import React from 'react';
-import { Text, View } from 'react-native';
 
 import Button from '../../components/Button';
-import styles from './styles';
+import { Container, Title, SubTitle, Btn } from './styles';
 
 export default function Home(): JSX.Element {
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Desafio Octupus</Text>
+    <Container>
+      <Title>Desafio Octupus</Title>
 
-      <Text style={styles.messaging}>
+      <SubTitle>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias
         dolores magnam vitae, libero minima minus eaque earum corporis sed eius
         excepturi deserunt quod accusamus rem vero porro. Unde, voluptatem modi.
-      </Text>
+      </SubTitle>
 
-      <View style={styles.btn}>
+      <Btn>
         <Button title="Entrar" />
-      </View>
-    </View>
+      </Btn>
+    </Container>
   );
 }
