@@ -1,34 +1,30 @@
 import React, { createContext, ReactNode, useState } from 'react';
 import * as Location from 'expo-location';
+import { Alert } from 'react-native';
 import api from '../services/api';
 
 type Coords = {
-  coords: {
-    latitude: number;
-    longitude: number;
-  };
+  latitude: number;
+  longitude: number;
 };
 
-type Api = {
-  list: [
-    {
-      coords: {
-        lat: -16.01676;
-        lon: -44.77385;
-      };
-      name: string;
-      price: number;
-      type: string;
-    },
-  ];
+export type Api = {
+  coords: {
+    lat: number;
+    lon: number;
+  };
+  name: string;
+  price: number;
+  type: string;
 };
 
 type CoordsContextType = {
   locations: Coords;
-  apiData: Api;
+  apiData: Api[];
   errMessage: string;
   getPermissions: () => Promise<void>;
-  getDataApi: ({ coords: { latitude, longitude } }: Coords) => Promise<void>;
+  getAddress: (address: string) => Promise<void>;
+  getDataApi: ({ latitude, longitude }: Coords) => Promise<void>;
 };
 
 type CoordsContextProviderProps = {
@@ -41,32 +37,59 @@ export function CoordsContextProvider({
   children,
 }: CoordsContextProviderProps): JSX.Element {
   const [locations, setLocation] = useState<Coords>({} as Coords);
+  const [apiData, setApiData] = useState<Api[]>([]);
   const [errMessage, setErrMessage] = useState('');
-  const [apiData, setApiData] = useState<Api>({} as Api);
 
+  // get permission device user
   async function getPermissions() {
     const { status } = await Location.requestForegroundPermissionsAsync();
     if (status !== 'granted') {
       setErrMessage('Permission to access location was denied');
       return;
     }
-    const location = await Location.getCurrentPositionAsync({});
-    setLocation(location);
+    const {
+      coords: { latitude, longitude },
+    } = await Location.getCurrentPositionAsync({});
+    setLocation({ latitude, longitude });
   }
 
-  async function getDataApi({ coords: { latitude, longitude } }: Coords) {
+  // get address user
+  async function getAddress(address: string) {
+    const accepted = await Location.hasServicesEnabledAsync();
+    if (accepted) {
+      const cityAddress = await Location.geocodeAsync(address);
+      cityAddress.map(({ latitude, longitude }) =>
+        setLocation({ latitude, longitude }),
+      );
+
+      // setLocation({ latitude, longitude });
+    }
+    await getPermissions();
+  }
+
+  // get api data
+  async function getDataApi({ latitude, longitude }: Coords) {
     try {
-      const { data } = await api.get<Api>(
+      const { data } = await api.get(
         `/api/options?lat=${latitude}&lon=${longitude}`,
       );
-      setApiData(data);
+      const { list } = data;
+      setApiData(list);
     } catch (error) {
-      console.log(error);
+      Alert.alert(error);
     }
   }
+
   return (
     <CoordsContext.Provider
-      value={{ locations, errMessage, getPermissions, getDataApi, apiData }}
+      value={{
+        locations,
+        errMessage,
+        getPermissions,
+        getDataApi,
+        apiData,
+        getAddress,
+      }}
     >
       {children}
     </CoordsContext.Provider>

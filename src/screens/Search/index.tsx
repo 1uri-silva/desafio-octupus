@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Text } from 'react-native';
 
 import { useNavigation } from '@react-navigation/native';
@@ -18,8 +18,9 @@ import {
 
 export default function Search(): JSX.Element {
   const { navigate } = useNavigation();
+  const [address, setAddress] = useState('');
 
-  const { getPermissions, locations, getDataApi } = useLocation();
+  const { getPermissions, locations, getDataApi, getAddress } = useLocation();
 
   useEffect(() => {
     getPermissions();
@@ -31,8 +32,19 @@ export default function Search(): JSX.Element {
         <Title>Pesquise um endereço ou forneça o seu automaticamente</Title>
 
         <SearchView>
-          <Input placeholder="Busque um endereço" />
-          <Button>
+          <Input
+            placeholder="Busque um endereço"
+            value={address}
+            onChangeText={value => setAddress(value)}
+          />
+
+          <Button
+            onPress={() => {
+              getAddress(address);
+              getDataApi(locations);
+              navigate('List');
+            }}
+          >
             <Text style={{ fontSize: 20 }}>PQ</Text>
           </Button>
         </SearchView>
