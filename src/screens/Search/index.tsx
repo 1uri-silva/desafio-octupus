@@ -1,5 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Text } from 'react-native';
+
+import { useNavigation } from '@react-navigation/native';
+import { useLocation } from '../../hook/useLocation';
 
 import {
   BtnTxt,
@@ -14,6 +17,14 @@ import {
 } from './styles';
 
 export default function Search(): JSX.Element {
+  const { navigate } = useNavigation();
+
+  const { getPermissions, locations, getDataApi } = useLocation();
+
+  useEffect(() => {
+    getPermissions();
+  }, [getPermissions]);
+
   return (
     <Container>
       <Content>
@@ -26,8 +37,13 @@ export default function Search(): JSX.Element {
           </Button>
         </SearchView>
 
-        <Touchable>
-          <BtnTxt>Sua localização atual</BtnTxt>
+        <Touchable
+          onPress={() => {
+            getDataApi(locations);
+            navigate('List');
+          }}
+        >
+          <BtnTxt>Usar sua localização atual</BtnTxt>
         </Touchable>
 
         <Separator />

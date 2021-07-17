@@ -1,22 +1,15 @@
+import 'react-native-gesture-handler';
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
 
-import Home from './src/screens/Home';
-import Search from './src/screens/Search';
+import Routes from './src/routes';
+import { CoordsContextProvider } from './src/contexts/location';
 
 export default function App(): JSX.Element {
   return (
-    <View style={styles.container}>
-      <Search />
+    <CoordsContextProvider>
+      <Routes />
       <StatusBar style="auto" />
-    </View>
+    </CoordsContextProvider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-  },
-});

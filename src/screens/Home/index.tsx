@@ -1,9 +1,12 @@
 import React from 'react';
+import { useNavigation } from '@react-navigation/native';
 
 import Button from '../../components/Button';
 import { Container, Title, SubTitle, Btn } from './styles';
 
 export default function Home(): JSX.Element {
+  const { navigate } = useNavigation();
+
   return (
     <Container>
       <Title>Desafio Octupus</Title>
@@ -15,7 +18,7 @@ export default function Home(): JSX.Element {
       </SubTitle>
 
       <Btn>
-        <Button title="Entrar" />
+        <Button title="Entrar" onPress={() => navigate('Search')} />
       </Btn>
     </Container>
   );
