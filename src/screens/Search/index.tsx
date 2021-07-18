@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { Text } from 'react-native';
 
 import { useNavigation } from '@react-navigation/native';
+import { Ionicons } from '@expo/vector-icons';
 import { useLocation } from '../../hook/useLocation';
 
 import {
   BtnTxt,
   Button,
-  Container,
   Content,
   Input,
   SearchView,
@@ -27,13 +26,14 @@ export default function Search(): JSX.Element {
   }, [getPermissions]);
 
   return (
-    <Container>
+    <>
       <Content>
         <Title>Pesquise um endereço ou forneça o seu automaticamente</Title>
 
         <SearchView>
           <Input
-            placeholder="Busque um endereço"
+            placeholder="São Paulo, Sp"
+            placeholderTextColor="#000"
             value={address}
             onChangeText={value => setAddress(value)}
           />
@@ -45,7 +45,7 @@ export default function Search(): JSX.Element {
               navigate('List');
             }}
           >
-            <Text style={{ fontSize: 20 }}>PQ</Text>
+            <Ionicons name="search-sharp" size={30} color="white" />
           </Button>
         </SearchView>
 
@@ -55,11 +55,10 @@ export default function Search(): JSX.Element {
             navigate('List');
           }}
         >
-          <BtnTxt>Usar sua localização atual</BtnTxt>
+          <BtnTxt>Usar localização atual</BtnTxt>
         </Touchable>
-
         <Separator />
       </Content>
-    </Container>
+    </>
   );
 }

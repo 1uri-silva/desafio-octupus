@@ -17,7 +17,7 @@ export type Api = {
   };
   name: string;
   price: number;
-  type: string;
+  type: 'TV' | 'BROADBAND' | 'LANDLINE' | 'ADDON';
 };
 
 type CoordsContextType = {

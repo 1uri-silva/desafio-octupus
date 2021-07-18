@@ -1,8 +1,6 @@
 import styled from 'styled-components/native';
-
-export const Container = styled.View`
-  flex: 1;
-`;
+import { fonts } from '../../styles/fonts';
+import { theme } from '../../styles/styles';
 
 export const Content = styled.View`
   margin-left: 10px;
@@ -13,6 +11,8 @@ export const Title = styled.Text`
   font-size: 25px;
   margin-top: 100px;
   margin-bottom: 70px;
+  color: ${theme.gray};
+  font-family: ${fonts.Poppins_Regular};
 `;
 
 export const SearchView = styled.View`
@@ -22,13 +22,16 @@ export const SearchView = styled.View`
 `;
 export const Input = styled.TextInput`
   width: 85%;
-  border-radius: 5px;
   padding: 10px;
+  font-size: 17px;
+  border-radius: 5px;
   background-color: gray;
+  font-family: ${fonts.Poppins_Regular};
 `;
 
 export const Button = styled.TouchableOpacity`
   flex: 1;
+  margin-left: 3px;
   border-radius: 5px;
   align-items: center;
   background-color: blue;

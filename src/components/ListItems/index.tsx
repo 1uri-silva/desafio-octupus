@@ -11,6 +11,8 @@ export default function ListItems({ item }: Props): JSX.Element {
   return (
     <Container>
       <Name>{item.name}</Name>
+      <Name>{item.type}</Name>
+      <Name>{item.price}</Name>
     </Container>
   );
 }

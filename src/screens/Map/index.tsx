@@ -2,7 +2,7 @@ import React from 'react';
 import MapView, { Marker } from 'react-native-maps';
 
 import { useLocation } from '../../hook/useLocation';
-import { Container } from './styles';
+import { Icon } from './styles';
 
 export default function Map(): JSX.Element {
   const { locations, apiData } = useLocation();
@@ -15,7 +15,9 @@ export default function Map(): JSX.Element {
             latitude: data.coords.lat,
             longitude: data.coords.lon,
           }}
-        />
+        >
+          <Icon name="marker" type={data.type} size={30} />
+        </Marker>
       ))}
     </MapView>
   );

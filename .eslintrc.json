@@ -30,6 +30,7 @@
     "camelcase": "off",
     "react/prop-types": "off",
     "react/jsx-props-no-spreading": "off",
+    "import/prefer-default-export": "warn",
     "react/jsx-filename-extension": [1, { "extensions": [".tsx"]}],
     "import/extensions": [
       "error",

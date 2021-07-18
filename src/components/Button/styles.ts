@@ -1,17 +1,21 @@
 import { TouchableOpacity } from 'react-native';
 import styled from 'styled-components/native';
 
+import { fonts } from '../../styles/fonts';
+import { theme } from '../../styles/styles';
+
 export const Container = styled(TouchableOpacity)`
-  height: 50px;
   width: 80%;
-  margin-top: 100px;
+  height: 50px;
+  border-radius: 7px;
   align-items: center;
-  background-color: blue;
   justify-content: center;
+  background-color: ${theme.but};
 `;
 
 export const Text = styled.Text`
-  font-size: 20px;
-  color: #fff;
+  font-size: 22px;
   text-align: center;
+  color: ${theme.title};
+  font-family: ${fonts.Poppins_Medium};
 `;
