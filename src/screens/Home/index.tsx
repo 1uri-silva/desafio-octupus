@@ -12,9 +12,9 @@ export default function Home(): JSX.Element {
       <Title>Desafio Octupus</Title>
 
       <SubTitle>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias
-        dolores magnam vitae, libero minima minus eaque earum corporis sed eius
-        excepturi deserunt quod accusamus rem vero porro. Unde, voluptatem modi.
+        Entre no app e desfrutr de nossos serviços.{'\n'}
+        Escolhe um dos nossos planos de Tv, Internet e Telefonia {'\n'}e
+        desfrute do bom pra você.
       </SubTitle>
 
       <Btn>

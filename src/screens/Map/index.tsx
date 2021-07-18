@@ -1,13 +1,20 @@
 import React from 'react';
-import MapView, { Marker } from 'react-native-maps';
+import MapView, { Marker, Callout } from 'react-native-maps';
 
 import { useLocation } from '../../hook/useLocation';
-import { Icon } from './styles';
+import { Icon, CalloutText, CalloutView } from './styles';
 
 export default function Map(): JSX.Element {
   const { locations, apiData } = useLocation();
   return (
-    <MapView style={{ flex: 1 }} initialRegion={locations}>
+    <MapView
+      style={{ flex: 1 }}
+      initialRegion={locations}
+      provider="google"
+      zoomTapEnabled={false}
+      rotateEnabled={false}
+      showsTraffic={false}
+    >
       {apiData.map(data => (
         <Marker
           key={data.name}
@@ -17,6 +24,14 @@ export default function Map(): JSX.Element {
           }}
         >
           <Icon name="marker" type={data.type} size={30} />
+
+          <Callout>
+            <CalloutView>
+              <CalloutText>Nome: {data.name}</CalloutText>
+              <CalloutText>Tipo: {data.type}</CalloutText>
+              <CalloutText>Preço {data.price}</CalloutText>
+            </CalloutView>
+          </Callout>
         </Marker>
       ))}
     </MapView>

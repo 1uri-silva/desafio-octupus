@@ -14,6 +14,7 @@ import {
   Title,
   Touchable,
 } from './styles';
+import Header from '../../components/Header';
 
 export default function Search(): JSX.Element {
   const { navigate } = useNavigation();
@@ -27,13 +28,14 @@ export default function Search(): JSX.Element {
 
   return (
     <>
+      <Header />
       <Content>
         <Title>Pesquise um endereço ou forneça o seu automaticamente</Title>
 
         <SearchView>
           <Input
             placeholder="São Paulo, Sp"
-            placeholderTextColor="#000"
+            placeholderTextColor="#ddd"
             value={address}
             onChangeText={value => setAddress(value)}
           />

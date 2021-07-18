@@ -47,6 +47,7 @@ export function CoordsContextProvider({
     const { status } = await Location.requestForegroundPermissionsAsync();
     if (status !== 'granted') {
       setErrMessage('Permission to access location was denied');
+      Alert.alert(errMessage);
       return;
     }
     const {
@@ -73,8 +74,6 @@ export function CoordsContextProvider({
           longitudeDelta: 0.14,
         }),
       );
-
-      // setLocation({ latitude, longitude });
     }
     await getPermissions();
   }
@@ -87,8 +86,8 @@ export function CoordsContextProvider({
       );
       const { list } = data;
       setApiData(list);
-    } catch (error) {
-      Alert.alert(error);
+    } catch {
+      Alert.alert('Algo saiu errado, tente novamente');
     }
   }
 

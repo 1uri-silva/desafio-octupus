@@ -28,3 +28,12 @@ export const Icon = styled(Foundation)<TypeProps>`
       color: gray;
     `};
 `;
+
+export const CalloutView = styled.View`
+  width: 160px;
+  height: 60px;
+`;
+
+export const CalloutText = styled.Text`
+  font-size: 15px;
+`;
