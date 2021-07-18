@@ -6,6 +6,8 @@ import api from '../services/api';
 type Coords = {
   latitude: number;
   longitude: number;
+  latitudeDelta: number;
+  longitudeDelta: number;
 };
 
 export type Api = {
@@ -50,7 +52,12 @@ export function CoordsContextProvider({
     const {
       coords: { latitude, longitude },
     } = await Location.getCurrentPositionAsync({});
-    setLocation({ latitude, longitude });
+    setLocation({
+      latitude,
+      longitude,
+      latitudeDelta: 0.14,
+      longitudeDelta: 0.14,
+    });
   }
 
   // get address user
@@ -59,7 +66,12 @@ export function CoordsContextProvider({
     if (accepted) {
       const cityAddress = await Location.geocodeAsync(address);
       cityAddress.map(({ latitude, longitude }) =>
-        setLocation({ latitude, longitude }),
+        setLocation({
+          latitude,
+          longitude,
+          latitudeDelta: 0.14,
+          longitudeDelta: 0.14,
+        }),
       );
 
       // setLocation({ latitude, longitude });
