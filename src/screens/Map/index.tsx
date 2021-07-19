@@ -15,7 +15,7 @@ export default function Map(): JSX.Element {
       rotateEnabled={false}
       showsTraffic={false}
     >
-      {apiData.map(data => (
+      {apiData?.map(data => (
         <Marker
           key={data.name}
           coordinate={{
@@ -29,7 +29,7 @@ export default function Map(): JSX.Element {
             <CalloutView>
               <CalloutText>Nome: {data.name}</CalloutText>
               <CalloutText>Tipo: {data.type}</CalloutText>
-              <CalloutText>Preço {data.price}</CalloutText>
+              <CalloutText>R$ {data.price.toFixed(2)}</CalloutText>
             </CalloutView>
           </Callout>
         </Marker>

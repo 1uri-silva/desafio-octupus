@@ -6,7 +6,6 @@ import Home from '../screens/Home';
 import Search from '../screens/Search';
 import List from '../screens/List';
 import Map from '../screens/Map';
-import { theme } from '../styles/styles';
 
 const { Navigator, Screen } = createStackNavigator();
 
@@ -16,7 +15,6 @@ export default function Routes(): JSX.Element {
       <Navigator
         screenOptions={{
           headerShown: false,
-          cardStyle: { flex: 1, backgroundColor: `${theme.primary}` },
         }}
       >
         <Screen name="Home" component={Home} />

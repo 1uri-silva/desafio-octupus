@@ -51,8 +51,8 @@ export const BtnTxt = styled.Text`
   justify-content: center;
 `;
 
-export const Separator = styled.Text`
+export const Separator = styled.View`
+  height: 1px;
   border-width: 0.7px;
   border-color: black;
-  height: 1px;
 `;

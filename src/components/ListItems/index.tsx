@@ -8,11 +8,12 @@ type Props = {
 };
 
 export default function ListItems({ item }: Props): JSX.Element {
+  const price = item.price.toFixed(2);
   return (
     <Container>
-      <Name>{item.name}</Name>
-      <Name>{item.type}</Name>
-      <Name>{item.price}</Name>
+      <Name>Nome do produto: {item.name}</Name>
+      <Name>Tipo: {item.type}</Name>
+      <Name>R$ {price}</Name>
     </Container>
   );
 }

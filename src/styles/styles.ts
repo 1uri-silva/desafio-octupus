@@ -1,10 +1,10 @@
 const theme = {
-  primary: '#56eef4',
+  sub: '#247ba0',
+  title: '#13293d',
+  bottom: '#006494',
+  background: '#e8f1f2',
 
-  title: '#5d737e',
-  sub: '#adbabd',
-  but: '#89a6fb',
-
+  // map
   green: '#32e875',
   blue: '#357ded',
   gray: '#4f6d7a',

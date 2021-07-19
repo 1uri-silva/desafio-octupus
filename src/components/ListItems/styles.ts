@@ -8,11 +8,11 @@ export const Container = styled.View`
   padding: 20px 10px;
   border-radius: 10px;
   justify-content: center;
-  background-color: ${theme.blue};
+  background-color: ${theme.title};
 `;
 
 export const Name = styled.Text`
   font-size: 18px;
-  color: ${theme.red};
+  color: ${theme.background};
   font-family: ${fonts.Poppins_Medium};
 `;

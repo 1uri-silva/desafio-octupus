@@ -10,7 +10,7 @@ export const Container = styled(RectButton)`
   border-radius: 7px;
   align-items: center;
   justify-content: center;
-  background-color: ${theme.but};
+  background-color: ${theme.bottom};
 `;
 
 export const Text = styled.Text`
