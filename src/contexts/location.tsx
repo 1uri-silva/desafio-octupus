@@ -22,7 +22,7 @@ export type Api = {
 
 type CoordsContextType = {
   locations: Coords;
-  apiData: Api[];
+  apiData?: Api[];
   errMessage: string;
   getPermissions: () => Promise<void>;
   getAddress: (address: string) => Promise<void>;
@@ -39,7 +39,7 @@ export function CoordsContextProvider({
   children,
 }: CoordsContextProviderProps): JSX.Element {
   const [locations, setLocation] = useState<Coords>({} as Coords);
-  const [apiData, setApiData] = useState<Api[]>([]);
+  const [apiData, setApiData] = useState<Api[]>();
   const [errMessage, setErrMessage] = useState('');
 
   // get permission device user

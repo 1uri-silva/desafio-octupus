@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-
 import { useNavigation } from '@react-navigation/native';
 import { Ionicons } from '@expo/vector-icons';
+
 import { useLocation } from '../../hook/useLocation';
 
 import {
