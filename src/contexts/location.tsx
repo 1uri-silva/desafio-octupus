@@ -46,9 +46,8 @@ export function CoordsContextProvider({
   async function getPermissions() {
     const { status } = await Location.requestForegroundPermissionsAsync();
     if (status !== 'granted') {
-      setErrMessage('Permission to access location was denied');
+      setErrMessage('Volte e tente novamente');
       Alert.alert(errMessage);
-      return;
     }
     const {
       coords: { latitude, longitude },
