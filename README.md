@@ -41,3 +41,4 @@ Desenvolver um aplicativo "fictício" de uma empresa de telecomunicações ofere
 <img src="readme/app.gif" width="200"/>
 </div>
 </div>
+<a href='https://github.com/rd-easy/desafio-octupus/blob/main/LICENSE'> LICENSE </a>
